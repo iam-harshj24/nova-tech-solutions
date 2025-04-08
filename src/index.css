@@ -5,7 +5,7 @@
 
 @layer base {
   :root {
-    --background: 200 33% 98%;
+    --background: 210 30% 98%;
     --foreground: 222 47% 11%;
 
     --card: 0 0% 100%;
@@ -14,16 +14,16 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
 
-    --primary: 195 90% 28%;
+    --primary: 226 64% 33%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 188 85% 30%;
+    --secondary: 250 84% 59%;
     --secondary-foreground: 222 47% 11%;
 
     --muted: 210 40% 96%;
     --muted-foreground: 215 16% 47%;
 
-    --accent: 210 40% 90%;
+    --accent: 214 32% 91%;
     --accent-foreground: 222 47% 11%;
 
     --destructive: 0 84% 60%;
@@ -37,19 +37,19 @@
   }
 
   .dark {
-    --background: 200 50% 10%;
+    --background: 222 47% 11%;
     --foreground: 210 40% 98%;
 
-    --card: 200 50% 10%;
+    --card: 222 47% 11%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 200 50% 10%;
+    --popover: 222 47% 11%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 188 85% 30%;
+    --primary: 226 70% 55%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 195 90% 28%;
+    --secondary: 250 84% 59%;
     --secondary-foreground: 210 40% 98%;
 
     --muted: 217 33% 18%;
@@ -78,7 +78,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold text-nitinova-blue dark:text-white;
+    @apply font-bold text-tech-dark dark:text-white;
   }
   
   section {
@@ -86,63 +86,127 @@
   }
 }
 
-/* Custom animations */
+/* Custom animations and technical design elements */
 @layer components {
-  .hero-text-gradient {
-    @apply bg-gradient-to-r from-nitinova-blue via-nitinova-teal to-nitinova-lightblue bg-clip-text text-transparent;
-  }
-  
+  /* Technical card styling */
   .service-card {
-    @apply rounded-lg border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:border-nitinova-teal;
+    @apply rounded-lg border border-border bg-white dark:bg-gray-800 p-6 shadow-sm transition-all duration-300 hover:shadow-md relative z-10 overflow-hidden;
   }
   
+  .service-card::before {
+    content: '';
+    @apply absolute top-0 left-0 w-1 h-full bg-tech-indigo scale-y-0 origin-bottom transition-transform duration-300;
+  }
+  
+  .service-card:hover::before {
+    @apply scale-y-100;
+  }
+  
+  .service-card::after {
+    content: '';
+    @apply absolute -right-32 -bottom-32 w-64 h-64 bg-tech-indigo/5 rounded-full opacity-0 transition-opacity duration-300;
+  }
+  
+  .service-card:hover::after {
+    @apply opacity-100;
+  }
+  
+  /* Feature icon styling */
   .feature-icon {
-    @apply flex h-12 w-12 items-center justify-center rounded-full bg-nitinova-teal/10 text-nitinova-teal;
+    @apply flex h-12 w-12 items-center justify-center rounded-lg bg-tech-indigo/10 text-tech-indigo relative overflow-hidden;
   }
   
-  /* Enhanced section titles */
+  .feature-icon::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-br from-tech-indigo/20 to-tech-purple/20 animate-data-flow bg-[length:200%_100%];
+  }
+  
+  /* Technical section titles */
   .section-title {
     @apply text-3xl md:text-4xl font-bold mb-4 relative;
   }
   
   .section-title::after {
     content: '';
-    @apply absolute left-0 -bottom-3 w-16 h-1 bg-gradient-to-r from-nitinova-teal to-nitinova-blue;
+    @apply absolute left-0 -bottom-3 w-16 h-1 bg-gradient-to-r from-tech-indigo to-tech-purple;
   }
   
   .section-title.centered::after {
     @apply left-1/2 -translate-x-1/2;
   }
   
-  /* Fancy gradient borders */
-  .gradient-border {
+  /* Technical gradient borders */
+  .gradient-tech-border {
     @apply relative border-transparent z-10;
   }
   
-  .gradient-border::before {
+  .gradient-tech-border::before {
     content: '';
-    @apply absolute inset-0 rounded-xl p-[1px] bg-gradient-to-r from-nitinova-teal via-nitinova-blue to-nitinova-lightblue -z-10;
+    @apply absolute inset-0 rounded-xl p-[1px] bg-gradient-to-r from-tech-indigo via-tech-purple to-tech-violet -z-10;
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask-composite: exclude;
   }
   
-  /* Glass effect */
-  .glass-card {
-    @apply backdrop-blur-md bg-white/80 dark:bg-gray-900/80 border border-white/20 dark:border-gray-800/30 shadow-xl;
+  /* Tech glass effect */
+  .tech-glass {
+    @apply backdrop-blur-md bg-white/90 dark:bg-gray-900/90 border border-white/20 dark:border-gray-800/30 shadow-xl;
   }
   
-  /* Button hover effects */
-  .btn-hover-slide {
-    @apply relative overflow-hidden;
+  /* Pulse effect for tech elements */
+  .tech-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
   
-  .btn-hover-slide::before {
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+  
+  /* Data connection animation for tech design */
+  .data-line {
+    @apply h-px bg-gradient-to-r from-tech-indigo to-tech-purple animate-data-flow bg-[length:200%_100%];
+  }
+  
+  /* Circuit board patterns */
+  .circuit-pattern {
+    background-image: 
+      radial-gradient(circle at 25px 25px, rgba(79, 70, 229, 0.15) 2px, transparent 0),
+      linear-gradient(to right, rgba(79, 70, 229, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(79, 70, 229, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    @apply bg-white dark:bg-gray-900;
+  }
+  
+  /* Technical button hover effect */
+  .tech-btn {
+    @apply relative overflow-hidden bg-tech-indigo text-white px-6 py-3 rounded-md;
+  }
+  
+  .tech-btn::before {
     content: '';
-    @apply absolute top-0 left-0 w-full h-full bg-nitinova-blue -translate-x-full transition-transform duration-300 ease-out z-[-1];
+    @apply absolute inset-0 bg-gradient-to-r from-tech-purple to-tech-indigo opacity-0 transition-opacity duration-300;
   }
   
-  .btn-hover-slide:hover::before {
-    @apply translate-x-0;
+  .tech-btn:hover::before {
+    @apply opacity-100;
+  }
+  
+  /* Tech card hover effects */
+  .tech-card-hover {
+    @apply transition-all duration-300;
+  }
+  
+  .tech-card-hover:hover {
+    @apply translate-y-[-5px] shadow-lg;
+  }
+  
+  /* Tech text gradients */
+  .tech-text-gradient {
+    @apply bg-gradient-to-r from-tech-indigo via-tech-purple to-tech-violet bg-clip-text text-transparent;
   }
   
   /* Enhanced scrolling animations */
@@ -194,13 +258,13 @@
   
   @keyframes pulse-glow {
     0% {
-      box-shadow: 0 0 0 0 rgba(8, 126, 139, 0.4);
+      box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.4);
     }
     70% {
-      box-shadow: 0 0 0 10px rgba(8, 126, 139, 0);
+      box-shadow: 0 0 0 10px rgba(79, 70, 229, 0);
     }
     100% {
-      box-shadow: 0 0 0 0 rgba(8, 126, 139, 0);
+      box-shadow: 0 0 0 0 rgba(79, 70, 229, 0);
     }
   }
   

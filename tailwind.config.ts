@@ -63,13 +63,17 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom colors based on nitinova.tech
-				nitinova: {
-					blue: '#0B3954',
-					teal: '#087E8B',
-					lightblue: '#BFD7ED',
-					gray: '#C5C5C5',
-					black: '#1D1D1D'
+				// New tech-focused color scheme
+				tech: {
+					blue: '#1E3A8A',
+					indigo: '#4F46E5',
+					purple: '#7C3AED',
+					violet: '#8B5CF6',
+					cyan: '#0891B2',
+					teal: '#0D9488',
+					dark: '#1E293B',
+					gray: '#64748B',
+					light: '#F1F5F9'
 				}
 			},
 			borderRadius: {
@@ -101,13 +105,24 @@ export default {
 				'fade-up': {
 					'0%': { opacity: '0', transform: 'translateY(20px)' },
 					'100%': { opacity: '1', transform: 'translateY(0)' }
+				},
+				'pulse-glow': {
+					'0%': { boxShadow: '0 0 0 0 rgba(79, 70, 229, 0.4)' },
+					'70%': { boxShadow: '0 0 0 10px rgba(79, 70, 229, 0)' },
+					'100%': { boxShadow: '0 0 0 0 rgba(79, 70, 229, 0)' }
+				},
+				'data-flow': {
+					'0%': { backgroundPosition: '0% 50%' },
+					'100%': { backgroundPosition: '100% 50%' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.5s ease-out',
-				'fade-up': 'fade-up 0.7s ease-out'
+				'fade-up': 'fade-up 0.7s ease-out',
+				'pulse-glow': 'pulse-glow 2s infinite',
+				'data-flow': 'data-flow 8s linear infinite'
 			}
 		}
 	},
