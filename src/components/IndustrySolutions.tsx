@@ -9,11 +9,12 @@ interface IndustrySolutionProps {
   icon: React.ElementType;
   features: string[];
   className?: string;
+  style?: React.CSSProperties;
 }
 
-const IndustrySolution = ({ title, description, icon: Icon, features, className }: IndustrySolutionProps) => {
+const IndustrySolution = ({ title, description, icon: Icon, features, className, style }: IndustrySolutionProps) => {
   return (
-    <div className={cn("bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-border p-6", className)}>
+    <div className={cn("bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-border p-6", className)} style={style}>
       <div className="flex items-center mb-4">
         <div className="feature-icon mr-4">
           <Icon className="h-6 w-6" />

@@ -11,6 +11,7 @@ interface PackageCardProps {
   features: string[];
   popular?: boolean;
   className?: string;
+  style?: React.CSSProperties;
 }
 
 const PackageCard = ({ 
@@ -19,14 +20,17 @@ const PackageCard = ({
   price, 
   features, 
   popular = false,
-  className 
+  className,
+  style
 }: PackageCardProps) => {
   return (
     <div className={cn(
       "rounded-xl border p-6 shadow-sm transition-all duration-300 hover:shadow-md",
       popular ? "border-nitinova-teal bg-nitinova-teal/5" : "border-border bg-card",
       className
-    )}>
+    )}
+    style={style}
+    >
       {popular && (
         <div className="mb-4">
           <span className="inline-block rounded-full bg-nitinova-teal px-3 py-1 text-xs font-medium text-white">
