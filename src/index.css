@@ -80,6 +80,10 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-bold text-nitinova-blue dark:text-white;
   }
+  
+  section {
+    @apply relative overflow-hidden;
+  }
 }
 
 /* Custom animations */
@@ -94,5 +98,68 @@
   
   .feature-icon {
     @apply flex h-12 w-12 items-center justify-center rounded-full bg-nitinova-teal/10 text-nitinova-teal;
+  }
+  
+  /* Scroll reveal animations */
+  .reveal {
+    @apply opacity-0 transition-all duration-700;
+  }
+  
+  .reveal-visible {
+    @apply opacity-100;
+  }
+  
+  .reveal-left {
+    @apply -translate-x-20;
+  }
+  
+  .reveal-right {
+    @apply translate-x-20;
+  }
+  
+  .reveal-up {
+    @apply translate-y-20;
+  }
+  
+  .reveal-down {
+    @apply -translate-y-20;
+  }
+  
+  .reveal-visible.reveal-left,
+  .reveal-visible.reveal-right,
+  .reveal-visible.reveal-up,
+  .reveal-visible.reveal-down {
+    @apply translate-x-0 translate-y-0;
+  }
+  
+  /* Button hover effects */
+  .btn-hover-slide {
+    @apply relative overflow-hidden;
+  }
+  
+  .btn-hover-slide::before {
+    content: '';
+    @apply absolute top-0 left-0 w-full h-full bg-nitinova-blue -translate-x-full transition-transform duration-300 ease-out z-[-1];
+  }
+  
+  .btn-hover-slide:hover::before {
+    @apply translate-x-0;
+  }
+  
+  /* Glass effect */
+  .glass-card {
+    @apply backdrop-blur-md bg-white/80 dark:bg-gray-900/80 border border-white/20 dark:border-gray-800/30;
+  }
+  
+  /* Gradient borders */
+  .gradient-border {
+    @apply relative border-transparent;
+  }
+  
+  .gradient-border::before {
+    content: '';
+    @apply absolute inset-0 rounded-xl p-[1px] bg-gradient-to-r from-nitinova-teal via-nitinova-blue to-nitinova-lightblue -z-10;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
   }
 }
