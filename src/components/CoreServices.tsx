@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Globe, ShoppingCart, BarChart3, Code, BrainCircuit, Link, LifeBuoy, Search } from 'lucide-react';
+import { Globe, ShoppingCart, BarChart3, Code, BrainCircuit, Link, LifeBuoy, Search, Server, Database } from 'lucide-react';
 import ServiceCard from './ServiceCard';
 import { Button } from '@/components/ui/button';
 
@@ -9,79 +9,82 @@ const CoreServices = () => {
     {
       icon: Globe,
       title: "Digital Foundation",
-      description: "Domain management, hosting, SSL, DNS, email setup and cloud infrastructure services."
+      description: "Enterprise-grade infrastructure with domain management, hosting, SSL certificates, and cloud services optimized for performance and security."
     },
     {
       icon: Code,
-      title: "Web Presence Development",
-      description: "Custom websites, CMS implementation, mobile optimization, and SEO-friendly design."
+      title: "Web Development",
+      description: "Custom website solutions built with modern frameworks, responsive design, and SEO-optimized architecture for maximum visibility and engagement."
     },
     {
       icon: ShoppingCart,
       title: "E-commerce Solutions",
-      description: "CS-Cart, Shopify, WooCommerce, payment gateways, and order processing automation."
+      description: "Comprehensive online retail platforms with secure payment gateways, inventory management, and customer experience optimization."
     },
     {
       icon: BarChart3,
       title: "Business Operations",
-      description: "CRM, ERP solutions, project management tools, and document management systems."
+      description: "Integrated CRM and ERP solutions with custom workflows, automated reporting, and business intelligence dashboards for data-driven decisions."
     },
     {
-      icon: Code,
-      title: "Custom Application Development",
-      description: "Custom web applications, mobile apps, internal tools, API development, and legacy modernization."
+      icon: Database,
+      title: "Custom Applications",
+      description: "Tailored software solutions designed for your specific business challenges, with scalable architecture and intuitive user interfaces."
     },
     {
       icon: BrainCircuit,
       title: "AI Implementation",
-      description: "AI strategy, machine learning, NLP, computer vision, predictive analytics, and chatbots."
+      description: "Advanced artificial intelligence solutions including machine learning models, NLP systems, and predictive analytics for business optimization."
     },
     {
       icon: Link,
-      title: "Integration Services",
-      description: "System integration, API connectivity, data migration, and third-party software integration."
+      title: "System Integration",
+      description: "Seamless connection of disparate systems through API development, middleware solutions, and automated data synchronization processes."
     },
     {
       icon: Search,
-      title: "SEO Services",
-      description: "Comprehensive SEO audits, keyword research, on-page optimization, and performance tracking."
+      title: "Digital Marketing",
+      description: "Comprehensive SEO strategies, content optimization, performance marketing campaigns, and analytics for measurable business growth."
     },
     {
-      icon: LifeBuoy,
-      title: "Support & Maintenance",
-      description: "24/7 technical support, regular updates, performance monitoring, and security audits."
+      icon: Server,
+      title: "Cloud Solutions",
+      description: "Enterprise cloud architecture with scalable infrastructure, containerization, microservices, and robust security implementations."
     }
   ];
 
   return (
-    <section className="py-20 bg-gray-50 dark:bg-gray-900" id="services">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Core Service Categories</h2>
-          <p className="text-muted-foreground text-lg">
-            Comprehensive digital services to power your business transformation at every stage of growth.
+    <section className="py-20 bg-tech-light dark:bg-gray-900" id="services">
+      <div className="section-container">
+        <div className="section-header">
+          <h2 className="section-title">Core Service Categories</h2>
+          <p className="section-description">
+            Enterprise-grade digital solutions to power your business transformation and drive measurable results
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="tech-grid">
           {services.map((service, index) => (
             <ServiceCard
               key={index}
               icon={service.icon}
               title={service.title}
               description={service.description}
-              className="animate-fade-up"
+              className="fade-up hover-lift"
               style={{ animationDelay: `${index * 0.1}s` }}
             />
           ))}
         </div>
         
         <div className="text-center mt-12">
-          <Button className="bg-nitinova-teal hover:bg-nitinova-blue text-white px-6 py-6">
-            View All Services
+          <Button className="tech-button tech-button-primary">
+            View Complete Service Catalog
           </Button>
         </div>
       </div>
+      
+      {/* Subtle tech background pattern */}
+      <div className="absolute top-0 left-0 w-full h-full tech-dots-pattern opacity-30 pointer-events-none" />
     </section>
   );
 };

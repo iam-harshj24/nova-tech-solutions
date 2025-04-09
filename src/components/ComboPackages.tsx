@@ -6,74 +6,77 @@ const ComboPackages = () => {
   const packages = [
     {
       title: "Digital Launch Pad",
-      description: "Perfect for new businesses establishing their online presence",
-      price: "$999",
+      description: "Comprehensive digital foundation for new businesses",
+      price: "$1,499",
       features: [
-        "Domain registration and hosting setup",
-        "Basic website development (5-7 pages)",
-        "SEO foundation (on-page optimization)",
-        "Google Analytics setup",
+        "Professional domain & hosting setup",
+        "Custom website development (5-7 pages)",
+        "Responsive design across all devices",
+        "SEO foundation implementation",
+        "Google Analytics & Search Console setup",
         "Social media profile creation",
-        "Basic business email setup"
+        "Business email configuration"
       ]
     },
     {
       title: "E-Commerce Accelerator",
-      description: "Complete solution for online stores ready to grow",
-      price: "$2,499",
+      description: "Complete solution for online retail businesses",
+      price: "$2,999",
       features: [
-        "Custom e-commerce site (CS-Cart or Shopify)",
+        "Enterprise e-commerce platform (CS-Cart/Shopify)",
         "Product catalog setup (up to 100 products)",
-        "Payment gateway integration",
-        "Basic inventory management",
+        "Secure payment gateway integration",
+        "Inventory management system",
+        "Order fulfillment workflow automation",
         "SEO optimization for product pages",
-        "Email marketing setup",
-        "3 months maintenance support"
+        "Email marketing automation",
+        "3 months technical support included"
       ],
       popular: true
     },
     {
       title: "Business Optimizer",
-      description: "Streamline operations with integrated business tools",
-      price: "$3,999",
+      description: "Integrated tools for operational excellence",
+      price: "$4,499",
       features: [
-        "CRM implementation",
-        "Basic ERP module setup",
-        "Website enhancement or redesign",
-        "Advanced SEO campaign (3 months)",
-        "Business process automation (2 processes)",
+        "Custom CRM implementation & integration",
+        "Business process automation (3 workflows)",
         "Data migration from legacy systems",
-        "Staff training sessions"
+        "Custom reporting & analytics dashboard",
+        "Team collaboration tools setup",
+        "Staff training & knowledge transfer",
+        "Advanced SEO & content strategy",
+        "6 months priority support"
       ]
     },
     {
       title: "Enterprise Transformation",
-      description: "Complete digital transformation for established businesses",
+      description: "Complete digital ecosystem for large organizations",
       price: "Custom",
       features: [
-        "Custom ERP solution development",
-        "Advanced CRM with sales automation",
-        "AI-powered business intelligence dashboard",
-        "Process automation via machine learning",
-        "Custom mobile application",
-        "Comprehensive SEO strategy (6 months)",
-        "Systems integration across platforms",
-        "Dedicated support manager"
+        "Enterprise architecture consultation",
+        "Custom software development",
+        "AI-powered business intelligence",
+        "Legacy system modernization",
+        "Process optimization & automation",
+        "Cloud infrastructure implementation",
+        "Data security & compliance framework",
+        "Ongoing technical partnership"
       ]
     }
   ];
 
   return (
-    <section className="py-20" id="packages">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Strategic Combo Packages</h2>
-          <p className="text-muted-foreground text-lg">
-            Tailored solution bundles designed to meet your specific business needs and maximize ROI.
+    <section className="py-20 bg-white dark:bg-gray-800" id="packages">
+      <div className="section-container">
+        <div className="section-header">
+          <h2 className="section-title">Strategic Solution Packages</h2>
+          <p className="section-description">
+            Professionally engineered service combinations designed to deliver maximum business value
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {packages.map((pkg, index) => (
             <PackageCard
               key={index}
@@ -82,12 +85,42 @@ const ComboPackages = () => {
               price={pkg.price}
               features={pkg.features}
               popular={pkg.popular}
-              className="animate-fade-up"
+              className="fade-up hover-lift"
               style={{ animationDelay: `${index * 0.1}s` }}
             />
           ))}
         </div>
+        
+        {/* Professional data visualization element */}
+        <div className="mt-16 flex justify-center">
+          <div className="w-full max-w-4xl">
+            <div className="flex items-center justify-between mb-8">
+              <div className="tech-stat">
+                <div className="tech-stat-value">99.9%</div>
+                <div className="tech-stat-label">Uptime Guarantee</div>
+              </div>
+              <div className="tech-separator h-12 w-px"></div>
+              <div className="tech-stat">
+                <div className="tech-stat-value">24/7</div>
+                <div className="tech-stat-label">Technical Support</div>
+              </div>
+              <div className="tech-separator h-12 w-px"></div>
+              <div className="tech-stat">
+                <div className="tech-stat-value">14+</div>
+                <div className="tech-stat-label">Years Experience</div>
+              </div>
+              <div className="tech-separator h-12 w-px"></div>
+              <div className="tech-stat">
+                <div className="tech-stat-value">500+</div>
+                <div className="tech-stat-label">Clients Worldwide</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+      
+      {/* Subtle tech background pattern */}
+      <div className="absolute bottom-0 right-0 w-1/2 h-1/2 tech-grid-pattern opacity-20 pointer-events-none" />
     </section>
   );
 };

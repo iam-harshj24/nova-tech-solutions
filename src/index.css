@@ -5,7 +5,7 @@
 
 @layer base {
   :root {
-    --background: 210 30% 98%;
+    --background: 210 40% 98%;
     --foreground: 222 47% 11%;
 
     --card: 0 0% 100%;
@@ -86,217 +86,163 @@
   }
 }
 
-/* Custom animations and technical design elements */
+/* Professional clean UI tech components */
 @layer components {
-  /* Technical card styling */
-  .service-card {
-    @apply rounded-lg border border-border bg-white dark:bg-gray-800 p-6 shadow-sm transition-all duration-300 hover:shadow-md relative z-10 overflow-hidden;
+  /* Professional section styling */
+  .section-container {
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
   
-  .service-card::before {
-    content: '';
-    @apply absolute top-0 left-0 w-1 h-full bg-tech-indigo scale-y-0 origin-bottom transition-transform duration-300;
+  /* Professional section header */
+  .section-header {
+    @apply mb-12 text-center;
   }
   
-  .service-card:hover::before {
-    @apply scale-y-100;
-  }
-  
-  .service-card::after {
-    content: '';
-    @apply absolute -right-32 -bottom-32 w-64 h-64 bg-tech-indigo/5 rounded-full opacity-0 transition-opacity duration-300;
-  }
-  
-  .service-card:hover::after {
-    @apply opacity-100;
-  }
-  
-  /* Feature icon styling */
-  .feature-icon {
-    @apply flex h-12 w-12 items-center justify-center rounded-lg bg-tech-indigo/10 text-tech-indigo relative overflow-hidden;
-  }
-  
-  .feature-icon::before {
-    content: '';
-    @apply absolute inset-0 bg-gradient-to-br from-tech-indigo/20 to-tech-purple/20 animate-data-flow bg-[length:200%_100%];
-  }
-  
-  /* Technical section titles */
   .section-title {
-    @apply text-3xl md:text-4xl font-bold mb-4 relative;
+    @apply text-3xl md:text-4xl font-bold mb-4 relative inline-block;
   }
   
   .section-title::after {
     content: '';
-    @apply absolute left-0 -bottom-3 w-16 h-1 bg-gradient-to-r from-tech-indigo to-tech-purple;
+    @apply absolute left-1/2 -translate-x-1/2 -bottom-2 w-16 h-1 bg-gradient-to-r from-tech-indigo to-tech-purple rounded-full;
   }
   
-  .section-title.centered::after {
-    @apply left-1/2 -translate-x-1/2;
+  .section-description {
+    @apply text-tech-gray max-w-2xl mx-auto;
   }
   
-  /* Technical gradient borders */
-  .gradient-tech-border {
-    @apply relative border-transparent z-10;
+  /* Clean tech grid */
+  .tech-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
   }
   
-  .gradient-tech-border::before {
+  /* Professional glass card */
+  .glass-card {
+    @apply bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm border border-white/20 dark:border-gray-700/20 rounded-xl shadow-sm;
+  }
+  
+  /* Professional accent border */
+  .accent-border {
+    @apply relative;
+  }
+  
+  .accent-border::before {
     content: '';
-    @apply absolute inset-0 rounded-xl p-[1px] bg-gradient-to-r from-tech-indigo via-tech-purple to-tech-violet -z-10;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: exclude;
+    @apply absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-tech-indigo to-tech-purple rounded-l-lg;
   }
   
-  /* Tech glass effect */
-  .tech-glass {
-    @apply backdrop-blur-md bg-white/90 dark:bg-gray-900/90 border border-white/20 dark:border-gray-800/30 shadow-xl;
+  /* Clean tech button */
+  .tech-button {
+    @apply relative overflow-hidden rounded-lg px-6 py-3 font-medium transition-all duration-300;
   }
   
-  /* Pulse effect for tech elements */
-  .tech-pulse {
-    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  .tech-button-primary {
+    @apply bg-tech-indigo text-white hover:bg-tech-purple;
   }
   
-  @keyframes pulse {
-    0%, 100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.7;
-    }
+  .tech-button-outline {
+    @apply border border-tech-indigo/50 text-tech-indigo hover:bg-tech-indigo hover:text-white;
   }
   
-  /* Data connection animation for tech design */
-  .data-line {
-    @apply h-px bg-gradient-to-r from-tech-indigo to-tech-purple animate-data-flow bg-[length:200%_100%];
+  /* Professional tech icon container */
+  .tech-icon-container {
+    @apply flex items-center justify-center w-12 h-12 rounded-lg relative;
   }
   
-  /* Circuit board patterns */
-  .circuit-pattern {
+  .tech-icon-bg {
+    @apply absolute inset-0 rounded-lg bg-gradient-to-br from-tech-indigo/10 to-tech-purple/10;
+  }
+  
+  .tech-icon {
+    @apply relative z-10 text-tech-indigo;
+  }
+  
+  /* Professional separator */
+  .tech-separator {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-tech-indigo/20 to-transparent my-8;
+  }
+  
+  /* Professional stats counter */
+  .tech-stat {
+    @apply text-center p-6;
+  }
+  
+  .tech-stat-value {
+    @apply text-4xl font-bold text-tech-indigo mb-2;
+  }
+  
+  .tech-stat-label {
+    @apply text-sm text-tech-gray uppercase tracking-wider;
+  }
+  
+  /* Professional tech badge */
+  .tech-badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+  
+  .tech-badge-primary {
+    @apply bg-tech-indigo/10 text-tech-indigo;
+  }
+  
+  .tech-badge-secondary {
+    @apply bg-tech-purple/10 text-tech-purple;
+  }
+  
+  /* Professional animation classes */
+  .fade-in {
+    @apply opacity-0 animate-fade-in;
+  }
+  
+  .fade-up {
+    @apply opacity-0 translate-y-8 animate-fade-up;
+  }
+  
+  /* Subtle tech background patterns */
+  .tech-dots-pattern {
+    background-image: radial-gradient(circle, currentColor 1px, transparent 1px);
+    background-size: 20px 20px;
+    @apply text-tech-grid/30;
+  }
+  
+  .tech-grid-pattern {
     background-image: 
-      radial-gradient(circle at 25px 25px, rgba(79, 70, 229, 0.15) 2px, transparent 0),
-      linear-gradient(to right, rgba(79, 70, 229, 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(79, 70, 229, 0.05) 1px, transparent 1px);
-    background-size: 50px 50px;
-    @apply bg-white dark:bg-gray-900;
+      linear-gradient(to right, currentColor 1px, transparent 1px),
+      linear-gradient(to bottom, currentColor 1px, transparent 1px);
+    background-size: 20px 20px;
+    @apply text-tech-grid/20;
   }
   
-  /* Technical button hover effect */
-  .tech-btn {
-    @apply relative overflow-hidden bg-tech-indigo text-white px-6 py-3 rounded-md;
+  /* Professional gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-tech-indigo to-tech-purple bg-clip-text text-transparent;
   }
   
-  .tech-btn::before {
-    content: '';
-    @apply absolute inset-0 bg-gradient-to-r from-tech-purple to-tech-indigo opacity-0 transition-opacity duration-300;
+  /* Clean hover card effect */
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-md;
   }
   
-  .tech-btn:hover::before {
-    @apply opacity-100;
+  /* Technical details toggle */
+  .tech-details {
+    @apply mt-2 text-sm text-tech-gray;
   }
   
-  /* Tech card hover effects */
-  .tech-card-hover {
-    @apply transition-all duration-300;
+  /* Professional tech data visualization elements */
+  .data-line {
+    @apply h-px bg-gradient-to-r from-tech-indigo/40 to-tech-purple/40 animate-data-flow bg-[length:200%_100%];
   }
   
-  .tech-card-hover:hover {
-    @apply translate-y-[-5px] shadow-lg;
+  .data-point {
+    @apply w-2 h-2 rounded-full bg-tech-indigo animate-pulse-subtle;
   }
   
-  /* Tech text gradients */
-  .tech-text-gradient {
-    @apply bg-gradient-to-r from-tech-indigo via-tech-purple to-tech-violet bg-clip-text text-transparent;
+  /* Technical code display */
+  .tech-code {
+    @apply font-mono text-sm p-4 rounded-lg bg-tech-dark text-white overflow-x-auto;
   }
   
-  /* Enhanced scrolling animations */
-  .fade-in-up {
-    @apply opacity-0 translate-y-8 transition-all duration-700;
-  }
-  
-  .fade-in-up.in-view {
-    @apply opacity-100 translate-y-0;
-  }
-  
-  .fade-in-left {
-    @apply opacity-0 -translate-x-8 transition-all duration-700;
-  }
-  
-  .fade-in-left.in-view {
-    @apply opacity-100 translate-x-0;
-  }
-  
-  .fade-in-right {
-    @apply opacity-0 translate-x-8 transition-all duration-700;
-  }
-  
-  .fade-in-right.in-view {
-    @apply opacity-100 translate-x-0;
-  }
-  
-  /* Floating animation */
-  .float {
-    animation: float 6s ease-in-out infinite;
-  }
-  
-  @keyframes float {
-    0% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-    100% {
-      transform: translateY(0px);
-    }
-  }
-  
-  /* Pulse glow effect */
-  .pulse-glow {
-    animation: pulse-glow 2s infinite;
-  }
-  
-  @keyframes pulse-glow {
-    0% {
-      box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.4);
-    }
-    70% {
-      box-shadow: 0 0 0 10px rgba(79, 70, 229, 0);
-    }
-    100% {
-      box-shadow: 0 0 0 0 rgba(79, 70, 229, 0);
-    }
-  }
-  
-  /* Scroll reveal animations */
-  .reveal {
-    @apply opacity-0 transition-all duration-700;
-  }
-  
-  .reveal-visible {
-    @apply opacity-100;
-  }
-  
-  .reveal-left {
-    @apply -translate-x-20;
-  }
-  
-  .reveal-right {
-    @apply translate-x-20;
-  }
-  
-  .reveal-up {
-    @apply translate-y-20;
-  }
-  
-  .reveal-down {
-    @apply -translate-y-20;
-  }
-  
-  .reveal-visible.reveal-left,
-  .reveal-visible.reveal-right,
-  .reveal-visible.reveal-up,
-  .reveal-visible.reveal-down {
-    @apply translate-x-0 translate-y-0;
+  /* Professional tooltip */
+  .tech-tooltip {
+    @apply absolute invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-300 bg-white dark:bg-gray-800 text-tech-dark dark:text-white text-xs rounded shadow-lg p-2 z-10;
   }
 }

@@ -63,17 +63,20 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// New tech-focused color scheme
+				// Enhanced professional tech-focused color palette
 				tech: {
-					blue: '#1E3A8A',
-					indigo: '#4F46E5',
-					purple: '#7C3AED',
-					violet: '#8B5CF6',
-					cyan: '#0891B2',
-					teal: '#0D9488',
-					dark: '#1E293B',
-					gray: '#64748B',
-					light: '#F1F5F9'
+					blue: '#1E40AF',     // Deeper blue for primary elements
+					indigo: '#4338CA',   // Rich indigo for accents
+					purple: '#6D28D9',   // Professional purple for gradients
+					violet: '#7C3AED',   // Vibrant violet for highlights
+					cyan: '#0891B2',     // Cyan for tech accents
+					teal: '#0D9488',     // Teal for secondary accents
+					dark: '#1E293B',     // Dark slate for text
+					gray: '#64748B',     // Professional gray for UI elements
+					light: '#F8FAFC',    // Light background for contrast
+					'blue-light': '#DBEAFE', // Light blue for subtle backgrounds
+					'indigo-light': '#E0E7FF', // Light indigo for hover states
+					'grid': '#E2E8F0'    // Grid color for technical patterns
 				}
 			},
 			borderRadius: {
@@ -106,14 +109,18 @@ export default {
 					'0%': { opacity: '0', transform: 'translateY(20px)' },
 					'100%': { opacity: '1', transform: 'translateY(0)' }
 				},
-				'pulse-glow': {
-					'0%': { boxShadow: '0 0 0 0 rgba(79, 70, 229, 0.4)' },
-					'70%': { boxShadow: '0 0 0 10px rgba(79, 70, 229, 0)' },
+				'pulse-subtle': {
+					'0%': { boxShadow: '0 0 0 0 rgba(79, 70, 229, 0.2)' },
+					'70%': { boxShadow: '0 0 0 6px rgba(79, 70, 229, 0)' },
 					'100%': { boxShadow: '0 0 0 0 rgba(79, 70, 229, 0)' }
 				},
 				'data-flow': {
 					'0%': { backgroundPosition: '0% 50%' },
 					'100%': { backgroundPosition: '100% 50%' }
+				},
+				'grid-line': {
+					'0%': { strokeDashoffset: '100' },
+					'100%': { strokeDashoffset: '0' }
 				}
 			},
 			animation: {
@@ -121,8 +128,9 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.5s ease-out',
 				'fade-up': 'fade-up 0.7s ease-out',
-				'pulse-glow': 'pulse-glow 2s infinite',
-				'data-flow': 'data-flow 8s linear infinite'
+				'pulse-subtle': 'pulse-subtle 2s infinite',
+				'data-flow': 'data-flow 8s linear infinite',
+				'grid-line': 'grid-line 2s ease-out forwards'
 			}
 		}
 	},

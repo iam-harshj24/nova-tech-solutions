@@ -15,46 +15,44 @@ const ServiceCard = ({ title, description, icon: Icon, className, style }: Servi
   return (
     <div 
       className={cn(
-        "service-card group tech-card-hover bg-white dark:bg-gray-800 rounded-xl shadow-md border border-border p-8", 
+        "relative overflow-hidden rounded-xl border border-border/40 bg-white dark:bg-gray-800/90 shadow-sm transition-all duration-300 hover:shadow-md group",
         className
       )}
       style={style}
     >
-      {/* Tech-themed decorative elements */}
-      <div className="absolute -right-16 -top-16 h-32 w-32 rounded-full bg-tech-indigo/5 group-hover:bg-tech-indigo/10 transition-all duration-300"></div>
-      <div className="absolute top-0 right-0 w-16 h-16">
-        <svg className="w-full h-full text-tech-indigo/10" viewBox="0 0 100 100" fill="none">
-          <path d="M0,0 L100,0 L100,100" stroke="currentColor" strokeWidth="1" />
-        </svg>
-      </div>
+      {/* Clean professional design with subtle tech elements */}
+      <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-tech-indigo/5 to-transparent rounded-bl-[100px] pointer-events-none" />
       
-      {/* Icon with tech-inspired styling */}
-      <div className="relative mb-6 bg-gradient-to-br from-tech-indigo/10 to-tech-purple/10 rounded-lg p-4 overflow-hidden group-hover:from-tech-indigo/20 group-hover:to-tech-purple/20 transition-all duration-300">
-        <div className="absolute inset-0 opacity-20">
-          <svg className="w-full h-full" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-                <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" strokeWidth="0.5" />
-              </pattern>
-            </defs>
-            <rect width="100" height="100" fill="url(#grid)" />
+      <div className="p-8">
+        {/* Icon container with subtle gradient */}
+        <div className="mb-6 relative">
+          <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-tech-indigo/10 to-tech-purple/5 blur-[2px]" />
+          <div className="relative flex items-center justify-center w-12 h-12 rounded-lg bg-gradient-to-r from-tech-indigo/10 to-tech-purple/10 backdrop-blur-sm">
+            <Icon className="h-6 w-6 text-tech-indigo group-hover:text-tech-purple transition-colors duration-300" />
+          </div>
+        </div>
+        
+        {/* Content with clean typography */}
+        <h3 className="text-xl font-semibold mb-3 text-tech-dark dark:text-white group-hover:text-tech-indigo transition-colors duration-300">{title}</h3>
+        <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-5">{description}</p>
+        
+        {/* Professional accent line */}
+        <div className="w-12 h-0.5 bg-gradient-to-r from-tech-indigo to-tech-purple/70 group-hover:w-20 transition-all duration-300" />
+        
+        {/* Subtle tech pattern in background */}
+        <div className="absolute bottom-0 right-0 opacity-[0.03] pointer-events-none">
+          <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 20L100 20M20 40L100 40M20 60L100 60M20 80L100 80M20 100L100 100" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
+            <path d="M20 20L20 100M40 20L40 100M60 20L60 100M80 20L80 100M100 20L100 100" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
           </svg>
         </div>
-        <Icon className="h-8 w-8 text-tech-indigo group-hover:text-tech-purple relative z-10 transition-colors duration-300" />
       </div>
       
-      {/* Content */}
-      <h3 className="text-xl font-bold mb-4 group-hover:text-tech-indigo transition-colors duration-300">{title}</h3>
-      <p className="text-muted-foreground text-sm leading-relaxed mb-4">{description}</p>
-      
-      {/* Tech-styled decorative line */}
-      <div className="data-line w-12 h-0.5 group-hover:w-20 transition-all duration-300"></div>
-      
-      {/* Learn more with tech styling */}
-      <div className="absolute bottom-6 right-6 text-tech-indigo text-sm font-medium opacity-0 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 flex items-center">
-        <span>View details</span>
-        <svg className="w-4 h-4 ml-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      {/* Professional "Learn More" with clean hover effect */}
+      <div className="px-8 py-4 border-t border-border/40 bg-gray-50 dark:bg-gray-800/50 flex justify-between items-center">
+        <span className="text-sm font-medium text-tech-indigo">Learn more</span>
+        <svg className="w-5 h-5 text-tech-indigo transform group-hover:translate-x-1 transition-transform duration-300" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 5L21 12M21 12L14 19M21 12H3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       </div>
     </div>
